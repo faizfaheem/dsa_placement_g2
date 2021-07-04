@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> decode(vector<int>& encoded, int first) {
+        int n=encoded.size();
+        vector<int> faiz;
+        faiz.push_back(first);
+            for(int i=0;i<n;i++)
+            {
+                faiz.push_back(faiz[i]^encoded[i]);
+}
+        return faiz;
+    }
+};
