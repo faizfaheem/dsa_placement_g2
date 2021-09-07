@@ -1,0 +1,85 @@
+#include<bits/stdc++.h>
+using namespace std;
+class faiz{
+  private:
+  int front,rear,currentsize;
+  int maxcapacity;
+  int *array;
+  public:
+  faiz(int size)
+  {
+      maxcapacity=size;
+      front =0;
+      currentsize=0;
+      rear=maxcapacity-1;
+      array=new int [maxcapacity];
+  }
+  void enque(int item);
+  bool isempty();
+  bool isfull();
+  void deque();
+  void display();
+};
+bool faiz::isfull()
+{
+if(currentsize == maxcapacity)
+{
+    cout<<"QUE IS FULL"<<endl;
+}
+return(currentsize == maxcapacity);
+}
+void faiz::enque(int item)
+{
+    if(isfull())
+    {
+        return;
+    }
+    else{
+        rear=(rear+1)%maxcapacity;
+        array[rear]=item;
+        currentsize+=1;
+        cout<<item<<"entered value"<<"position"<<rear<<endl;
+        
+    }
+}
+bool faiz::isempty()
+{
+    if(currentsize==0)
+    {
+        cout<<"QUE is empty"<<endl;
+    }
+    return(currentsize == 0);
+}
+void faiz::deque()
+{
+    if(isempty())
+    return;
+    int item=array[front];
+    front =(front+1)%maxcapacity;
+    currentsize=currentsize-1;
+    cout<<item<<"removed item"<<"position"<<front<<endl;
+}
+void faiz::display()
+{
+    if(currentsize==0){
+    cout<<"empty"<<endl;
+    }
+    else{
+        int i,j;
+        for(i=front,j=0;j<currentsize;j++)
+        cout<<array[(i+j)]%maxcapacity<<endl;
+    }
+}
+int main()
+{
+    faiz s=faiz(5);
+    s.enque(10);
+      s.enque(20);
+        s.enque(30);
+          s.enque(40);
+          s.deque();
+          s.deque();
+           s.enque(90);
+            s.enque(80);
+            s.display();
+            return 0;}

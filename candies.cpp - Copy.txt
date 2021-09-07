@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k,s;
+    n=10;
+    k=5;
+    cin>>s;
+    if(s==0)
+    {
+        cout<<"invalid input"<<endl;
+    cout<<"number of candies "<<n<<endl;    
+    }
+    if(n-s>=k)
+    {
+        cout<<"sold"<<s<<endl;
+        cout<<"number of candies"<<n-s<<endl;
+        
+    }
+    
+    
+    return 0;
+}
